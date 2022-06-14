@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 300vh;
+        }
+
+        div {
+            background-color: black;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const div = document.querySelector('div');
+        let number = 0;
+        let grow = true;
+        document.addEventListener('scroll', () => {
+            if (grow) {
+                div.style.height = number + 'vh';
+                div.style.width = number + 'vh';
+                number++;
+            } else {
+                number--;
+                div.style.height = number + 'vh';
+                div.style.width = number + 'vh';
+            }
+
+            if (number > 50)
+                grow = false;
+            else if (number < 1)
+                grow = true;
+        })
+    </script>
+</body>
+
+</html>
